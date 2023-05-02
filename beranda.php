@@ -26,6 +26,7 @@ session_start();
         elseif($role == 'admin') { ?>
         <!-- Isi konten admin disini -->
         <h1>Selamat datang di menu admin</h1>
+        <a href="../admin/beranda_admin.php">Beranda admin</a>
         <?php }
 
         elseif($role == 'owner'){ ?>

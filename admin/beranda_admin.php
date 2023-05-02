@@ -11,12 +11,6 @@ session_start();
     <title>BAKPIA LEZAT</title>
 </head>
 <body>
-    <?php
-    if (!isset($_SESSION['username'])) {
-        header("Location: ../index.php"); // redirect ke halaman login jika belum login
-        exit();
-    }
-    ?>
     <!-- loader -->
     <div class="bg-loader">
         <div class="loader"></div>
@@ -29,7 +23,7 @@ session_start();
             <ul>
                 <li><a href="beranda_admin.php">HOME</a></li>
                 <li class="active"><a href="../admin/read.php">BAPIA</a></li>
-                <li><a href="../logout.php">Log Out (<?php echo $_SESSION['username']; ?>)</a></li>
+                <li><a href="../logout.php">Log Out</a></li>
             </ul>
         </div>
     </header>
