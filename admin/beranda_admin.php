@@ -1,45 +1,66 @@
 <?php
 session_start();
+$role = $_SESSION['role'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAKPIA LEZAT</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Bakpiaku</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- loader -->
     <div class="bg-loader">
         <div class="loader"></div>
     </div>
 
-    <!-- header -->
-    <header>
-        <div class="container">
-            <h1><a href="beranda_admin.php">Menu Admin</a></h1>
-            <ul>
-                <li><a href="beranda_admin.php">HOME</a></li>
-                <li class="active"><a href="../admin/read.php">BAPIA</a></li>
-                <li><a href="../logout.php">Log Out</a></li>
-            </ul>
-        </div>
-    </header>
+    <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    <!-- label -->
-    <section class="label">
-        <div class="container">
-            <p>HOME / BERANDA</p>
-        </div>
-    </section>
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/bakpia 2.jpg" alt="">
+        <h1>Admin Bakpiaku<span></span></h1>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="../logout.php">Logout</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <a class="" href=""></a>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
         <ul>
         <?php
             $role = $_SESSION['role'];
             if($role == 'admin'){ ?>
+            <h1>Bakpiaku Menu Admin</h1>
             <!-- Isi konten admin disini -->
-            <h1>Selamat datang di menu admin</h1>
             <?php }?> 
     <footer>
         <p>Created by Kelompok 3 A2 | © 2023</p>

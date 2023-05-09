@@ -1,0 +1,81 @@
+DROP DATABASE pa_web;
+-- @block
+CREATE DATABASE pa_web;
+-- @block
+CREATE TABLE pa_web.user (
+  id int PRIMARY KEY NOT NULL auto_increment,
+  username varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  role enum('user', 'admin', 'owner') not null
+);
+-- @block
+CREATE TABLE pa_web.product (
+  id int PRIMARY KEY NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  price int NOT NULL,
+  image varchar(255),
+  description varchar(255),
+  content text
+);
+-- @block
+CREATE TABLE pa_web.`order` (
+  id INT PRIMARY KEY NOT NULL auto_increment,
+  user_id int not null,
+  total_price int not null,
+  status enum('progress', 'success', 'cancelled') not null,
+  foreign key (user_id) references user(id)
+);
+-- @block
+CREATE TABLE pa_web.order_product (
+  id INT PRIMARY KEY NOT NULL auto_increment,
+  order_id int not null,
+  product_id int not null,
+  amount int not null,
+  total int not null,
+  foreign key (order_id) references `order`(id),
+  foreign key (product_id) references product(id)
+);
+-- @block
+INSERT INTO pa_web.user (username, email, password, role)
+VALUES ('owner', 'owner@gmail.com', 'password', 'owner'),
+  ('admin', 'admin@gmail.com', 'password', 'admin'),
+  ('user1', 'user1@gmail.com', 'password', 'user');
+-- @block
+INSERT INTO pa_web.product (name, price, image, description)
+VALUES (
+    'Menu 1',
+    '100000',
+    'assets/img/menu/menu-item-1.png',
+    'Makanan Paling Enak ke 1'
+  ),
+  (
+    'Menu 2',
+    '200000',
+    'assets/img/menu/menu-item-2.png',
+    'Makanan Paling Enak ke 2'
+  ),
+  (
+    'Menu 3',
+    '300000',
+    'assets/img/menu/menu-item-3.png',
+    'Makanan Paling Enak ke 3'
+  ),
+  (
+    'Menu 4',
+    '400000',
+    'assets/img/menu/menu-item-4.png',
+    'Makanan Paling Enak ke 4'
+  ),
+  (
+    'Menu 5',
+    '500000',
+    'assets/img/menu/menu-item-5.png',
+    'Makanan Paling Enak ke 5'
+  ),
+  (
+    'Menu 6',
+    '600000',
+    'assets/img/menu/menu-item-6.png',
+    'Makanan Paling Enak ke 6'
+  );
